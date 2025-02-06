@@ -12,8 +12,9 @@ chrome.runtime.onInstalled.addListener(() => {
         'https://b2b.anadolupharma.com/',
         'https://www.sentezb2b.com/',
         'https://b4b.anadoluitriyat.com/',
-        'https://www.akvitaecza.com/',
-        'https://www.farmazon.com.tr/'
+        "https://www.farmazonrx.com.tr/",
+        'https://www.farmazon.com.tr/',
+        'https://www.ecza1.com/'
       ];
       
       // Open each website in a new tab
