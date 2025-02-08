@@ -1,9 +1,10 @@
 [package]
 name = "depo-scraper"
-version = "0.2.1"
-edition = "2018"  # Use Rust 2018 edition
+version = "0.2.2"
+edition = "2018"
 
 [dependencies]
 clipboard = "0.5"
-warp = "0.3.7"  # for HTTP server
-tokio = { version = "1.43", features = ["full"] }  # asynchronous runtime for warp
+warp = "0.3.7"
+tokio = { version = "1.43", features = ["full"] }
+regex = "1.11.1"  # Add the regex crate for barcode filtering

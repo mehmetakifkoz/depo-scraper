@@ -1,6 +1,7 @@
 use clipboard::{ClipboardContext, ClipboardProvider};
 use tokio::time::{sleep, Duration};
 use warp::Filter;
+use regex::Regex;
 use std::sync::{Arc, RwLock};
 
 #[tokio::main]
@@ -17,10 +18,15 @@ async fn main() {
         loop {
             match ctx.get_contents() {
                 Ok(contents) => {
+                    // If clipboard content changes, we check for a barcode
                     if contents != last_clipboard {
-                        println!("Clipboard content changed: {}", contents);
-                        *clipboard_content_clone.write().unwrap() = contents.clone(); // Clone the contents before storing
-                        last_clipboard = contents.clone(); // Clone the contents before using
+                        let re = Regex::new(r"\b\d{13}\b").unwrap(); // Regular expression for 13-digit barcode
+                        if let Some(captures) = re.find(&*contents) { // Borrow contents as a &str
+                            // Barcode detected, print message in console
+                            println!("Barcode changed: {}", captures.as_str());
+                            *clipboard_content_clone.write().unwrap() = captures.as_str().to_string(); // Store the barcode
+                        }
+                        last_clipboard = contents; // Update last_clipboard after checking
                     }
                 }
                 Err(e) => eprintln!("Failed to read clipboard: {}", e),
@@ -29,15 +35,17 @@ async fn main() {
         }
     });
 
-    // Create a route for serving the clipboard content
-    let clipboard_route = warp::path("clipboard")
+    // Create a route for serving the barcode content
+    let barcode_route = warp::path("barcode")
         .map(move || {
             let contents = clipboard_content.read().unwrap(); // Read the clipboard content
-            warp::reply::json(&*contents) // Return the clipboard content as JSON
+
+            // If barcode exists, return it, otherwise return default barcode
+            warp::reply::json(&*contents) // Return the barcode or default (empty) barcode
         });
 
     // Start the warp server
-    warp::serve(clipboard_route)
+    warp::serve(barcode_route)
         .run(([127, 0, 0, 1], 3030)) // Local server at http://127.0.0.1:3030
         .await;
 }
