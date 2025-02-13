@@ -1,18 +1,19 @@
 {
-  "manifest_version": 3,
-  "name": "Depo Scraper",
-  "description": "Automates barcode search across multiple depo websites.",
-  "version": "0.2.3",
-  "permissions": [
-      "tabs"
-  ],
-  "background": {
-      "service_worker": "background.js"
-  },
-  "host_permissions": [
-      "http://localhost:3030/*"
-  ],
-  "action": {
-      "default_popup": "popup.html"
-  }
+    "manifest_version": 3,
+    "name": "Depo Scraper",
+    "description": "Automates barcode search across multiple depo websites.",
+    "version": "0.2.4",
+    "permissions": [
+        "tabs"
+    ],
+    "background": {
+        "service_worker": "background.js",
+        "type": "module"
+    },
+    "host_permissions": [
+        "http://localhost:3030/*"
+    ],
+    "action": {
+        "default_popup": "popup.html"
+    }
 }
