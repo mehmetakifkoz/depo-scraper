@@ -5,7 +5,7 @@ export class Anadoluitriyat extends Depo {
         super();
         this.name = "Anadoluitriyat";
         this.url = "https://b4b.anadoluitriyat.com";
-        this.searchAreaQuery = 'input'; // Query for search area input
+        this.searchAreaQuery = 'input[placeholder="Hızlı Arama"]'; // Query for search area input
         this.submitButtonQuery = 'button[type="submit"]'; // Query for submit button
     }
 }
