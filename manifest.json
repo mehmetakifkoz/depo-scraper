@@ -1,18 +1,13 @@
 {
     "manifest_version": 3,
     "name": "Depo Scraper",
-    "description": "Automates barcode search across multiple depo websites.",
-    "version": "0.2.6",
-    "permissions": [
-        "tabs"
-    ],
+    "description": "Barkod aramalarını otomatikleştiren Chrome uzantısı.",
+    "version": "1.0.0",
+    "permissions": ["tabs"],
     "background": {
         "service_worker": "background.js",
         "type": "module"
     },
-    "host_permissions": [
-        "http://localhost:3030/*"
-    ],
     "action": {
         "default_popup": "popup.html"
     }

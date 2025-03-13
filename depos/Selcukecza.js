@@ -5,4 +5,9 @@ export class Selcukecza extends Depo {
         super();
         this.url = "https://webdepo.selcukecza.com.tr/";
     }
+
+    searchBarcode(barcode) {
+        console.log(`Searching for ${barcode} in Selcukecza depo`);
+        // In the future, we can automate barcode searching on the website here
+    }
 }

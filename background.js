@@ -26,13 +26,10 @@ const depos = [
     new Ecza1(),
 ];
 
-// Poll each depo for barcode updates every second
-setInterval(() => {
-    depos.forEach((depo) => depo.fetchBarcode());
-}, 1000);
-
 chrome.runtime.onMessage.addListener((message) => {
     if (message.type === "openWebsites") {
         depos.forEach((depo) => depo.openPage());
+    } else if (message.type === "searchBarcode") {
+        depos.forEach((depo) => depo.searchBarcode(message.barcode));
     }
 });
