@@ -2,8 +2,20 @@
     "manifest_version": 3,
     "name": "Depo Scraper",
     "description": "Barkod aramalarını otomatikleştiren Chrome uzantısı.",
-    "version": "1.0.0",
-    "permissions": ["tabs"],
+    "version": "1.1",
+    "permissions": ["tabs", "scripting"],
+    "host_permissions": [
+        "https://esiparisv2.alliance-healthcare.com.tr/*",
+        "https://b4b.anadoluitriyat.com/*",
+        "https://b2b.anadolupharma.com/*",
+        "https://www.ecza1.com/*",
+        "https://www.farmazon.com.tr/*",
+        "https://www.farmazonrx.com.tr/*",
+        "http://webdepo.nevzatecza.com.tr/*",
+        "https://eticaret.saglikeczadeposu.com/*",
+        "https://webdepo.selcukecza.com.tr/*",
+        "https://www.sentezb2b.com/*"
+    ],
     "background": {
         "service_worker": "background.js",
         "type": "module"

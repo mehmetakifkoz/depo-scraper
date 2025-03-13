@@ -3,11 +3,9 @@ import { Depo } from "./Depo.js";
 export class Sentezb2b extends Depo {
     constructor() {
         super();
-        this.url = "https://www.sentezb2b.com/";
-    }
-
-    searchBarcode(barcode) {
-        console.log(`Searching for ${barcode} in Sentezb2b depo`);
-        // In the future, we can automate barcode searching on the website here
+        this.name = "Sentezb2b";
+        this.url = "https://www.sentezb2b.com";
+        this.searchAreaQuery = '#search-field'; // Query for search area input
+        this.submitButtonQuery = "#search-button"; // Query for submit button
     }
 }
