@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "Depo Scraper",
     "description": "Barkod aramalarını otomatikleştiren Chrome uzantısı.",
-    "version": "1.1.2",
+    "version": "2.0.0",
     "permissions": ["tabs", "scripting"],
     "host_permissions": [
         "https://esiparisv2.alliance-healthcare.com.tr/*",
@@ -14,7 +14,8 @@
         "http://webdepo.nevzatecza.com.tr/*",
         "https://eticaret.saglikeczadeposu.com/*",
         "https://webdepo.selcukecza.com.tr/*",
-        "https://www.sentezb2b.com/*"
+        "https://www.sentezb2b.com/*",
+        "http://localhost:3030/*"
     ],
     "background": {
         "service_worker": "background.js",
