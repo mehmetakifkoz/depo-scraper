@@ -4,10 +4,13 @@ export class Depo {
             throw new Error("Cannot instantiate abstract class Depo directly.");
         }
 
-        // Common properties for all Depo subclasses
         this.name = ""; // Name of the depo, to be defined in subclasses
         this.searchAreaQuery = ""; // CSS selector for the search area
         this.submitButtonQuery = ""; // CSS selector for the submit button
+        this.lastBarcode = "0000000000000"; // Store the last fetched barcode
+
+        // Start barcode fetching automatically
+        setInterval(() => this.fetchBarcode(), 1000);
     }
 
     openPage() {
@@ -44,4 +47,21 @@ export class Depo {
             args: [barcode, this.searchAreaQuery, this.submitButtonQuery]
         });
     }
+
+    async fetchBarcode() {
+        try {
+            const response = await fetch("http://localhost:3030/barcode");
+            if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+
+            const newBarcode = await response.json(); // Assuming JSON response
+            if (newBarcode !== this.lastBarcode && newBarcode !== "0000000000000") {
+                console.log(`Barcode changed: ${newBarcode} in ${this.name} depo`);
+                this.lastBarcode = newBarcode;
+                this.searchBarcode(newBarcode);
+            }
+        } catch (error) {
+            console.error("Error fetching barcode:", error);
+        }
+    }
+
 }
