@@ -2,9 +2,10 @@
     "manifest_version": 3,
     "name": "Depo Scraper",
     "description": "Barkod aramalarını otomatikleştiren Chrome uzantısı.",
-    "version": "2.0.4",
+    "version": "2.0.5",
     "permissions": ["tabs", "scripting"],
     "host_permissions": [
+        "https://www.akvitaecza.com/*",
         "https://esiparisv2.alliance-healthcare.com.tr/*",
         "https://b4b.anadoluitriyat.com/*",
         "https://b2b.anadolupharma.com/*",

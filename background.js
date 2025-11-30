@@ -3,7 +3,8 @@ import { Selcukecza } from "./depos/Selcukecza.js";
 import { Nevzatecza } from "./depos/Nevzatecza.js";
 import { Anadolupharma } from "./depos/Anadolupharma.js";
 import { Sentezb2b } from "./depos/Sentezb2b.js";
-import { Anadoluitriyat } from "./depos/Anadoluitriyat.js";
+// import { Anadoluitriyat } from "./depos/Anadoluitriyat.js";
+import { Akvita } from "./depos/Akvita.js";
 import { Saglikeczadeposu } from "./depos/Saglikeczadeposu.js";
 import { Farmazonrx } from "./depos/Farmazonrx.js";
 import { Farmazon } from "./depos/Farmazon.js";
@@ -19,7 +20,8 @@ const depos = [
     new Nevzatecza(),
     new Anadolupharma(),
     new Sentezb2b(),
-    new Anadoluitriyat(),
+    // new Anadoluitriyat(),
+    new Akvita(),
     new Saglikeczadeposu(),
     new Farmazonrx(),
     new Farmazon(),
